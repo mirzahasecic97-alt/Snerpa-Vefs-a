@@ -291,13 +291,9 @@ button { cursor: pointer; }
 }
 .program-card-price { font: 800 17px/1 var(--font); }
 
-/* ---------- Coach carousel ---------- */
-.coach-scroller {
-  display: flex; gap: 14px; overflow-x: auto; padding: 4px var(--pad) 10px;
-  scroll-snap-type: x mandatory;
-}
+/* ---------- Coach carousel (shares .reviews/.reviews-track markup) ---------- */
 .coach-card {
-  flex: none; width: 150px; scroll-snap-align: start; text-align: center;
+  flex: 0 0 190px; scroll-snap-align: start; text-align: center;
   background: var(--white); border: 1px solid var(--border-on-light); border-radius: var(--radius-lg);
   padding: 20px 12px;
 }
@@ -308,11 +304,6 @@ button { cursor: pointer; }
 .coach-card h3 { margin: 0 0 5px; font: 700 14px/1.3 var(--font); }
 .coach-role { font: 600 12px/1.3 var(--font); color: var(--text-on-light-faint); }
 .coach-spec { margin-top: 6px; font: 700 11px/1 var(--mono); color: var(--yellow-deep); }
-
-@media (min-width: 900px) {
-  .coach-scroller { flex-wrap: wrap; overflow: visible; margin: 0; padding: 0; }
-  .coach-card { width: calc((100% - 4 * 14px) / 5); }
-}
 
 /* ---------- Reviews / umsagnir carousel ---------- */
 .reviews-summary{

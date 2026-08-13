@@ -200,12 +200,12 @@
     render();
   }
 
-  /* ---------- Reviews carousel (umsagnir) ---------- */
-  function initReviews() {
-    var track = document.getElementById("reviewsTrack");
-    var dotsWrap = document.getElementById("reviewsDots");
-    var prevBtn = document.getElementById("reviewsPrev");
-    var nextBtn = document.getElementById("reviewsNext");
+  /* ---------- Generic scroll-track carousel (umsagnir, þjálfarar) ---------- */
+  function initCarousel(opts) {
+    var track = document.getElementById(opts.trackId);
+    var dotsWrap = document.getElementById(opts.dotsId);
+    var prevBtn = document.getElementById(opts.prevId);
+    var nextBtn = document.getElementById(opts.nextId);
     if (!track || !dotsWrap || !prevBtn || !nextBtn) return;
 
     var cards = Array.prototype.slice.call(track.children);
@@ -215,7 +215,7 @@
       var dot = document.createElement("button");
       dot.type = "button";
       dot.className = "reviews-dot";
-      dot.setAttribute("aria-label", "Fara í umsögn " + (i + 1));
+      dot.setAttribute("aria-label", opts.dotLabel + " " + (i + 1));
       dot.addEventListener("click", function () {
         track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
       });
@@ -255,6 +255,20 @@
     window.addEventListener("resize", update);
 
     update();
+  }
+
+  function initReviews() {
+    initCarousel({
+      trackId: "reviewsTrack", dotsId: "reviewsDots", prevId: "reviewsPrev", nextId: "reviewsNext",
+      dotLabel: "Fara í umsögn"
+    });
+  }
+
+  function initCoaches() {
+    initCarousel({
+      trackId: "coachesTrack", dotsId: "coachesDots", prevId: "coachesPrev", nextId: "coachesNext",
+      dotLabel: "Fara á þjálfara"
+    });
   }
 
   /* ---------- Formspree form submit ----------
@@ -311,6 +325,7 @@
     initAccordions();
     initWizard();
     initReviews();
+    initCoaches();
     initMailtoForms();
   });
 })();
