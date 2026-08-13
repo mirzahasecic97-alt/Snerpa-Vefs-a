@@ -247,10 +247,10 @@ button { cursor: pointer; }
 .card-grid { display: flex; flex-direction: column; gap: 18px; }
 @media (min-width: 768px) { .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; } }
 
-.program-card { border: 1px solid var(--border-on-light); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); }
-.program-card img { width: 100%; height: 170px; object-fit: cover; object-position: center 38%; }
+.program-card { display: flex; flex-direction: column; border: 1px solid var(--border-on-light); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); }
+.program-card img { width: 100%; height: 170px; object-fit: cover; object-position: center 38%; flex: none; }
 .program-card img[src*="fjarthjalfun"] { object-position: center 44%; }
-.program-card-body { padding: 18px; }
+.program-card-body { padding: 18px; flex: 1 1 auto; }
 .program-card h3 { margin: 0 0 8px; font: 800 21px/1.2 var(--font); }
 .program-card p { margin: 0 0 14px; font: 400 15px/1.55 var(--font); color: var(--text-on-light-faint); }
 .fact-list { display: flex; flex-direction: column; gap: 7px; margin: 0 0 16px; padding: 0; list-style: none; }
