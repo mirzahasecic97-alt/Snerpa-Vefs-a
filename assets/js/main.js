@@ -147,30 +147,54 @@
         return;
       }
 
-      // Step 3 submit: build a mailto fallback (TODO: replace with real form endpoint).
+      // Step 3 submit: send to Formspree (lands in info@snerpacoaching.is,
+      // merkt fyrir Hauk / fjarþjálfun).
       var form = wizard.querySelector("[data-wizard-form]");
+      var statusEl = wizard.querySelector("[data-wizard-status]");
       var data = {};
       if (form) {
         Array.prototype.slice.call(form.elements).forEach(function (el) {
           if (el.name) data[el.name] = el.value;
         });
       }
-      var bodyLines = [
-        "Þjálfari: " + (selection.coach || "—"),
-        "Pakki: " + (selection.pkg || "—"),
-        "Nafn: " + (data.name || ""),
-        "Netfang: " + (data.email || ""),
-        "Sími: " + (data.tel || ""),
-        "Markmið: " + (data.goals || ""),
-        "Reynsla: " + (data.experience || ""),
-        "Meiðsli/heilsufar: " + (data.health || ""),
-        "Hvenær hentar að byrja: " + (data.start || ""),
-        "Annað: " + (data.notes || "")
-      ];
-      var mailto = "mailto:Haukur@snerpacoaching.is" +
-        "?subject=" + encodeURIComponent("Fjarþjálfun — skráning") +
-        "&body=" + encodeURIComponent(bodyLines.join("\n"));
-      window.location.href = mailto;
+      var payload = new FormData();
+      payload.append("_subject", "Snerpa — Fjarþjálfun skráning (Haukur)");
+      payload.append("Þjálfari", selection.coach || "—");
+      payload.append("Pakki", selection.pkg || "—");
+      payload.append("Nafn", data.name || "");
+      payload.append("Netfang", data.email || "");
+      payload.append("Sími", data.tel || "");
+      payload.append("Markmið", data.goals || "");
+      payload.append("Reynsla", data.experience || "");
+      payload.append("Meiðsli/heilsufar", data.health || "");
+      payload.append("Hvenær hentar að byrja", data.start || "");
+      payload.append("Annað", data.notes || "");
+
+      nextBtn.disabled = true;
+      nextBtn.textContent = "Sendi...";
+
+      fetch("https://formspree.io/f/xdendnke", {
+        method: "POST",
+        body: payload,
+        headers: { Accept: "application/json" }
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Formspree error");
+        if (form) form.reset();
+        nextBtn.hidden = true;
+        if (statusEl) {
+          statusEl.textContent = "Takk fyrir! Við höfum samband fljótlega.";
+          statusEl.className = "form-status is-success";
+          statusEl.hidden = false;
+        }
+      }).catch(function () {
+        nextBtn.disabled = false;
+        nextBtn.textContent = "Senda fyrirspurn";
+        if (statusEl) {
+          statusEl.textContent = "Úps, eitthvað fór úrskeiðis. Reyndu aftur eða sendu okkur línu á info@snerpacoaching.is.";
+          statusEl.className = "form-status is-error";
+          statusEl.hidden = false;
+        }
+      });
     });
 
     render();
