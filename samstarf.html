@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snerpa Þjálfun — Samstarf</title>
+<meta name="description" content="Samstarf við Snerpu Þjálfun — sýnileiki á æfingum og samfélagsmiðlum, sameiginlegar kynningar og fleira.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Fara í meginefni</a>
+
+<header class="site-header">
+  <div class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/img/wordmark.png" alt="Snerpa" width="120" height="20"></a>
+    <div class="nav-links">
+      <ul>
+      <li><a href="index.html#um-okkur">Um okkur</a></li>
+      <li><a href="thjalfun.html">Þjálfun</a></li>
+      <li><a href="index.html#thjalfarar">Þjálfarar</a></li>
+      <li><a href="samstarf.html" class="is-current">Samstarf</a></li>
+      <li><a href="hafa-samband.html">Hafa samband</a></li>
+      <li><a href="verslun.html">Verslun</a></li>
+    </ul>
+    </div>
+    <a class="nav-cta" href="thjalfun.html">Okkar þjálfun</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <nav class="mobile-menu-links" aria-label="Aðalvalmynd farsíma">
+    <a href="index.html#um-okkur">Um okkur<span class="chevron">›</span></a>
+    <a href="thjalfun.html">Þjálfun<span class="chevron">›</span></a>
+    <div class="mobile-sublinks">
+      <a href="fotbolti.html">— Fótbolti</a>
+      <a href="handbolti.html">— Handbolti</a>
+      <a href="sextiu-plus.html">— 60+ Æfingar</a>
+      <a href="fjarthjalfun.html">— Fjarþjálfun</a>
+    </div>
+    <a href="index.html#thjalfarar">Þjálfarar<span class="chevron">›</span></a>
+    <a href="samstarf.html" class="is-current">Samstarf<span class="chevron">›</span></a>
+    <a href="hafa-samband.html">Hafa samband<span class="chevron">›</span></a>
+    <a href="verslun.html">Verslun<span class="chevron">›</span></a>
+  </nav>
+  <div class="mobile-menu-cta">
+    <a class="btn btn-primary" href="thjalfun.html">Okkar þjálfun</a>
+    <a class="btn btn-outline-dark" href="hafa-samband.html">Hafa samband</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">SAMSTARF</span>
+      <h1>Viltu vinna með okkur?</h1>
+      <p class="lead">Samstarf er sniðið að ykkar markmiðum — sýnileiki á æfingum og samfélagsmiðlum, sameiginlegar kynningar eða annað sem hentar báðum aðilum.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container" style="max-width:640px">
+
+      <div class="info-list">
+        <div class="info-list-row">
+          <div class="info-list-label">SÝNILEIKI</div>
+          <div class="info-list-value">Merki og kynning á æfingum, viðburðum og vefsíðu/samfélagsmiðlum Snerpa.</div>
+        </div>
+        <div class="info-list-row">
+          <div class="info-list-label">SAMFÉLAGSMIÐLAR</div>
+          <div class="info-list-value">Sameiginlegar kynningar og gjafaleikir á Instagram og TikTok.</div>
+        </div>
+        <div class="info-list-row">
+          <div class="info-list-label">GAGNKVÆMUR ÁVINNINGUR</div>
+          <div class="info-list-value">Kynningarefni, viðburðir eða vöruprufanir — mótað saman.</div>
+        </div>
+      </div>
+
+      <!-- TODO: tengja við raunverulegt endapunkt fyrir samstarfsfyrirspurnir -->
+      <form id="samstarf-form" action="#" method="post">
+        <div class="form-field">
+          <label for="p-company">Fyrirtæki</label>
+          <input id="p-company" type="text" name="company" autocomplete="organization">
+        </div>
+        <div class="form-field">
+          <label for="p-name">Nafn tengiliðar</label>
+          <input id="p-name" type="text" name="name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="p-email">Netfang</label>
+          <input id="p-email" type="email" inputmode="email" name="email" autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="p-tel">Sími</label>
+          <input id="p-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+        </div>
+        <div class="form-field">
+          <label for="p-message">Segðu okkur frá samstarfshugmyndinni</label>
+          <textarea id="p-message" name="message" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Senda fyrirspurn</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="sticky-cta">
+  <button class="btn btn-primary" type="submit" form="samstarf-form">Senda fyrirspurn</button>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="newsletter-box">
+      <h4>Póstlisti</h4>
+      <p>Fáðu fréttir og tilboð frá Snerpa beint í pósthólfið.</p>
+      <!-- TODO: tengja við raunverulegt endapunkt fyrir póstlista -->
+      <form class="newsletter-form" action="#" method="post">
+        <label class="visually-hidden" for="newsletter-email">Netfangið þitt</label>
+        <input id="newsletter-email" type="email" inputmode="email" name="email" autocomplete="email" placeholder="Netfangið þitt" required>
+        <button class="btn btn-primary" type="submit">Skrá mig</button>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <img class="wordmark" src="assets/img/wordmark.png" alt="Snerpa" width="140" height="23">
+        <p class="tagline">Fótbolti, handbolti, 60+ æfingar og fjarþjálfun — fyrir alla, á öllum aldri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Þjálfun</h4>
+        <ul class="footer-links">
+          <li><a href="fotbolti.html">Fótbolti</a></li>
+          <li><a href="handbolti.html">Handbolti</a></li>
+          <li><a href="sextiu-plus.html">60+ Æfingar</a></li>
+          <li><a href="fjarthjalfun.html">Fjarþjálfun</a></li>
+          <li><a href="verslun.html">Verslun</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hafðu samband</h4>
+        <ul class="footer-links">
+          <li><a href="hafa-samband.html">Hafa samband</a></li>
+          <li><a href="samstarf.html">Samstarf</a></li>
+          <li><a href="mailto:info@snerpacoaching.is">info@snerpacoaching.is</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/snerpathjalfun/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://www.facebook.com/profile.php?id=100089621047835" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a href="https://www.tiktok.com/@snerpathjalfun" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="personuvernd.html">Persónuvernd</a>
+      <span class="copyright">© 2026 Snerpa Þjálfun. Allur réttur áskilinn.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

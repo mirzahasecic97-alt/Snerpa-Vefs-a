@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snerpa Þjálfun — Hafa samband</title>
+<meta name="description" content="Hafðu samband við Snerpu Þjálfun — spurningar, ábendingar eða áhugi á að skrá sig.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Fara í meginefni</a>
+
+<header class="site-header">
+  <div class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/img/wordmark.png" alt="Snerpa" width="120" height="20"></a>
+    <div class="nav-links">
+      <ul>
+      <li><a href="index.html#um-okkur">Um okkur</a></li>
+      <li><a href="thjalfun.html">Þjálfun</a></li>
+      <li><a href="index.html#thjalfarar">Þjálfarar</a></li>
+      <li><a href="samstarf.html">Samstarf</a></li>
+      <li><a href="hafa-samband.html" class="is-current">Hafa samband</a></li>
+      <li><a href="verslun.html">Verslun</a></li>
+    </ul>
+    </div>
+    <a class="nav-cta" href="thjalfun.html">Okkar þjálfun</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Opna valmynd" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <nav class="mobile-menu-links" aria-label="Aðalvalmynd farsíma">
+    <a href="index.html#um-okkur">Um okkur<span class="chevron">›</span></a>
+    <a href="thjalfun.html">Þjálfun<span class="chevron">›</span></a>
+    <div class="mobile-sublinks">
+      <a href="fotbolti.html">— Fótbolti</a>
+      <a href="handbolti.html">— Handbolti</a>
+      <a href="sextiu-plus.html">— 60+ Æfingar</a>
+      <a href="fjarthjalfun.html">— Fjarþjálfun</a>
+    </div>
+    <a href="index.html#thjalfarar">Þjálfarar<span class="chevron">›</span></a>
+    <a href="samstarf.html">Samstarf<span class="chevron">›</span></a>
+    <a href="hafa-samband.html" class="is-current">Hafa samband<span class="chevron">›</span></a>
+    <a href="verslun.html">Verslun<span class="chevron">›</span></a>
+  </nav>
+  <div class="mobile-menu-cta">
+    <a class="btn btn-primary" href="thjalfun.html">Okkar þjálfun</a>
+    <a class="btn btn-outline-dark" href="hafa-samband.html">Hafa samband</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">SNERPA ÞJÁLFUN</span>
+      <h1>Hafa samband</h1>
+      <p class="lead">Spurningar, ábendingar eða áhugi á að skrá sig? Sendu okkur línu — við svörum eins fljótt og við getum.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container" style="max-width:640px">
+
+      <h2 style="font-size:20px">Beinar upplýsingar</h2>
+      <div class="contact-info-list">
+        <div class="contact-info-row">
+          <div class="info-list-label">NETFANG</div>
+          <a href="mailto:info@snerpacoaching.is" style="min-height:44px;display:flex;align-items:center;font:600 15.5px/1.3 var(--font);color:var(--yellow-deep);word-break:break-all">info@snerpacoaching.is</a>
+        </div>
+        <div class="contact-info-row">
+          <div class="info-list-label">SAMFÉLAGSMIÐLAR</div>
+          <div class="social-row">
+            <a href="https://www.instagram.com/snerpathjalfun/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=100089621047835" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.tiktok.com/@snerpathjalfun" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="form-note">Áhuga á samstarfi frekar en æfingum? Skoðaðu <a href="samstarf.html" style="color:var(--yellow-deep);font-weight:700">samstarfssíðuna okkar</a>.</p>
+
+      <!-- TODO: tengja við raunverulegt endapunkt fyrir samskiptaform -->
+      <form id="contact-form" action="#" method="post">
+        <div class="form-field">
+          <label for="c-name">Nafn</label>
+          <input id="c-name" type="text" name="name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="c-email">Netfang</label>
+          <input id="c-email" type="email" inputmode="email" name="email" autocomplete="email" placeholder="nafn@netfang.is">
+        </div>
+        <div class="form-field">
+          <label for="c-tel">Símanúmer <span class="hint">(valfrjálst)</span></label>
+          <input id="c-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel" placeholder="000 0000">
+        </div>
+        <div class="form-field">
+          <label for="c-message">Skilaboð</label>
+          <textarea id="c-message" name="message" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Senda skilaboð</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="sticky-cta">
+  <button class="btn btn-primary" type="submit" form="contact-form">Senda skilaboð</button>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="newsletter-box">
+      <h4>Póstlisti</h4>
+      <p>Fáðu fréttir og tilboð frá Snerpa beint í pósthólfið.</p>
+      <!-- TODO: tengja við raunverulegt endapunkt fyrir póstlista -->
+      <form class="newsletter-form" action="#" method="post">
+        <label class="visually-hidden" for="newsletter-email">Netfangið þitt</label>
+        <input id="newsletter-email" type="email" inputmode="email" name="email" autocomplete="email" placeholder="Netfangið þitt" required>
+        <button class="btn btn-primary" type="submit">Skrá mig</button>
+      </form>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <img class="wordmark" src="assets/img/wordmark.png" alt="Snerpa" width="140" height="23">
+        <p class="tagline">Fótbolti, handbolti, 60+ æfingar og fjarþjálfun — fyrir alla, á öllum aldri.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Þjálfun</h4>
+        <ul class="footer-links">
+          <li><a href="fotbolti.html">Fótbolti</a></li>
+          <li><a href="handbolti.html">Handbolti</a></li>
+          <li><a href="sextiu-plus.html">60+ Æfingar</a></li>
+          <li><a href="fjarthjalfun.html">Fjarþjálfun</a></li>
+          <li><a href="verslun.html">Verslun</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hafðu samband</h4>
+        <ul class="footer-links">
+          <li><a href="hafa-samband.html">Hafa samband</a></li>
+          <li><a href="samstarf.html">Samstarf</a></li>
+          <li><a href="mailto:info@snerpacoaching.is">info@snerpacoaching.is</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/snerpathjalfun/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://www.facebook.com/profile.php?id=100089621047835" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a href="https://www.tiktok.com/@snerpathjalfun" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="personuvernd.html">Persónuvernd</a>
+      <span class="copyright">© 2026 Snerpa Þjálfun. Allur réttur áskilinn.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
