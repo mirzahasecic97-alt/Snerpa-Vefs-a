@@ -431,6 +431,10 @@ button { cursor: pointer; }
 }
 .form-field.on-dark input:focus, .form-field.on-dark textarea:focus { border-color: var(--yellow); }
 .form-note { margin: 0 0 26px; font: 400 14.5px/1.6 var(--font); color: var(--text-on-light-faint); }
+.form-status { margin: 14px 0 0; padding: 12px 14px; border-radius: var(--radius); font: 600 14.5px/1.5 var(--font); }
+.form-status.is-success { background: rgba(138,138,0,.1); color: var(--yellow-deep); }
+.form-status.is-error { background: rgba(214,69,69,.1); color: #d64545; }
+.newsletter-form .form-status { margin-top: 10px; }
 
 /* ---------- Wizard (Fjarþjálfun) ---------- */
 .wizard-nav { display: flex; gap: 8px; margin-bottom: 24px; }

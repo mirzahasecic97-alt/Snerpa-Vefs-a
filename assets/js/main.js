@@ -233,52 +233,53 @@
     update();
   }
 
-  /* ---------- Generic mailto form submit ----------
-     Builds a mailto: link from a form's fields and opens the user's mail
-     client with it pre-filled (no backend on this static site — TODO:
-     swap for a real endpoint if one is ever set up). */
-  function wireMailtoForm(form, toEmail, subject, fields) {
+  /* ---------- Formspree form submit ----------
+     Submits a form to Formspree via fetch (no page leave) and shows an
+     inline status message. Used for póstlisti, Hafa samband og Samstarf —
+     all three land in info@snerpacoaching.is. */
+  function wireFormspreeForm(form) {
     if (!form) return;
+    var status = form.querySelector("[data-form-status]");
+    var externalSubmit = form.id ? document.querySelector('button[type="submit"][form="' + form.id + '"]') : null;
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var data = {};
-      Array.prototype.slice.call(form.elements).forEach(function (el) {
-        if (el.name) data[el.name] = el.value;
+      var submitBtn = form.querySelector('button[type="submit"]');
+      [submitBtn, externalSubmit].forEach(function (b) { if (b) b.disabled = true; });
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Formspree error");
+        form.reset();
+        if (status) {
+          status.textContent = "Takk fyrir! Skilaboðin voru send.";
+          status.className = "form-status is-success";
+          status.hidden = false;
+        }
+      }).catch(function () {
+        if (status) {
+          status.textContent = "Úps, eitthvað fór úrskeiðis. Reyndu aftur eða sendu okkur línu á info@snerpacoaching.is.";
+          status.className = "form-status is-error";
+          status.hidden = false;
+        }
+      }).finally(function () {
+        [submitBtn, externalSubmit].forEach(function (b) { if (b) b.disabled = false; });
       });
-      var lines = fields.map(function (f) {
-        return f.label + ": " + (data[f.name] || "");
-      });
-      var mailto = "mailto:" + toEmail +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(lines.join("\n"));
-      window.location.href = mailto;
     });
   }
 
   function initMailtoForms() {
     // Póstlisti — birtist í fæti á öllum síðum.
-    document.querySelectorAll(".newsletter-form").forEach(function (form) {
-      wireMailtoForm(form, "info@snerpacoaching.is", "Póstlisti — nýskráning", [
-        { name: "email", label: "Netfang" }
-      ]);
-    });
+    document.querySelectorAll(".newsletter-form").forEach(wireFormspreeForm);
 
     // Hafa samband.
-    wireMailtoForm(document.getElementById("contact-form"), "info@snerpacoaching.is", "Hafa samband — fyrirspurn", [
-      { name: "name", label: "Nafn" },
-      { name: "email", label: "Netfang" },
-      { name: "tel", label: "Sími" },
-      { name: "message", label: "Skilaboð" }
-    ]);
+    wireFormspreeForm(document.getElementById("contact-form"));
 
     // Samstarf.
-    wireMailtoForm(document.getElementById("samstarf-form"), "info@snerpacoaching.is", "Samstarf — fyrirspurn", [
-      { name: "company", label: "Fyrirtæki" },
-      { name: "name", label: "Nafn tengiliðar" },
-      { name: "email", label: "Netfang" },
-      { name: "tel", label: "Sími" },
-      { name: "message", label: "Samstarfshugmynd" }
-    ]);
+    wireFormspreeForm(document.getElementById("samstarf-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {

@@ -120,11 +120,12 @@
     <div class="newsletter-box">
       <h4>Póstlisti</h4>
       <p>Fáðu fréttir og tilboð frá Snerpa beint í pósthólfið.</p>
-      <!-- TODO: tengja við raunverulegt endapunkt fyrir póstlista -->
-      <form class="newsletter-form" action="#" method="post">
+      <form class="newsletter-form" action="https://formspree.io/f/xdendnke" method="POST">
         <label class="visually-hidden" for="newsletter-email">Netfangið þitt</label>
         <input id="newsletter-email" type="email" inputmode="email" name="email" autocomplete="email" placeholder="Netfangið þitt" required>
+        <input type="hidden" name="_subject" value="Snerpa — Ný áskrift á póstlista">
         <button class="btn btn-primary" type="submit">Skrá mig</button>
+        <p class="form-status" data-form-status hidden></p>
       </form>
     </div>
     <div class="footer-grid">
