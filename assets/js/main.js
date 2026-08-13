@@ -167,7 +167,7 @@
         "Hvenær hentar að byrja: " + (data.start || ""),
         "Annað: " + (data.notes || "")
       ];
-      var mailto = "mailto:info@snerpacoaching.is" +
+      var mailto = "mailto:Haukur@snerpacoaching.is" +
         "?subject=" + encodeURIComponent("Fjarþjálfun — skráning") +
         "&body=" + encodeURIComponent(bodyLines.join("\n"));
       window.location.href = mailto;
@@ -233,10 +233,59 @@
     update();
   }
 
+  /* ---------- Generic mailto form submit ----------
+     Builds a mailto: link from a form's fields and opens the user's mail
+     client with it pre-filled (no backend on this static site — TODO:
+     swap for a real endpoint if one is ever set up). */
+  function wireMailtoForm(form, toEmail, subject, fields) {
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var data = {};
+      Array.prototype.slice.call(form.elements).forEach(function (el) {
+        if (el.name) data[el.name] = el.value;
+      });
+      var lines = fields.map(function (f) {
+        return f.label + ": " + (data[f.name] || "");
+      });
+      var mailto = "mailto:" + toEmail +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
+      window.location.href = mailto;
+    });
+  }
+
+  function initMailtoForms() {
+    // Póstlisti — birtist í fæti á öllum síðum.
+    document.querySelectorAll(".newsletter-form").forEach(function (form) {
+      wireMailtoForm(form, "info@snerpacoaching.is", "Póstlisti — nýskráning", [
+        { name: "email", label: "Netfang" }
+      ]);
+    });
+
+    // Hafa samband.
+    wireMailtoForm(document.getElementById("contact-form"), "info@snerpacoaching.is", "Hafa samband — fyrirspurn", [
+      { name: "name", label: "Nafn" },
+      { name: "email", label: "Netfang" },
+      { name: "tel", label: "Sími" },
+      { name: "message", label: "Skilaboð" }
+    ]);
+
+    // Samstarf.
+    wireMailtoForm(document.getElementById("samstarf-form"), "info@snerpacoaching.is", "Samstarf — fyrirspurn", [
+      { name: "company", label: "Fyrirtæki" },
+      { name: "name", label: "Nafn tengiliðar" },
+      { name: "email", label: "Netfang" },
+      { name: "tel", label: "Sími" },
+      { name: "message", label: "Samstarfshugmynd" }
+    ]);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
     initAccordions();
     initWizard();
     initReviews();
+    initMailtoForms();
   });
 })();
