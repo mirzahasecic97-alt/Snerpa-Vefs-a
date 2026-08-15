@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Snerpa Þjálfun — shared behaviour (no external dependencies)
+   Snerpa Þjálfun - shared behaviour (no external dependencies)
    ========================================================================== */
 (function () {
   "use strict";
@@ -156,7 +156,7 @@
       }
 
       if (summary) {
-        summary.textContent = (selection.coach || "—") + " · " + (selection.pkg || "—");
+        summary.textContent = (selection.coach || "-") + " · " + (selection.pkg || "-");
       }
     }
 
@@ -206,9 +206,9 @@
         });
       }
       var payload = new FormData();
-      payload.append("_subject", "Snerpa — Fjarþjálfun skráning (Haukur)");
-      payload.append("Þjálfari", selection.coach || "—");
-      payload.append("Pakki", selection.pkg || "—");
+      payload.append("_subject", "Snerpa - Fjarþjálfun skráning (Haukur)");
+      payload.append("Þjálfari", selection.coach || "-");
+      payload.append("Pakki", selection.pkg || "-");
       payload.append("Nafn", data.name || "");
       payload.append("Netfang", data.email || "");
       payload.append("Sími", data.tel || "");
@@ -321,7 +321,7 @@
 
   /* ---------- Formspree form submit ----------
      Submits a form to Formspree via fetch (no page leave) and shows an
-     inline status message. Used for póstlisti, Hafa samband og Samstarf —
+     inline status message. Used for póstlisti, Hafa samband og Samstarf -
      all three land in info@snerpacoaching.is. */
   function wireFormspreeForm(form) {
     if (!form) return;
@@ -358,7 +358,7 @@
   }
 
   function initMailtoForms() {
-    // Póstlisti — birtist í fæti á öllum síðum.
+    // Póstlisti - birtist í fæti á öllum síðum.
     document.querySelectorAll(".newsletter-form").forEach(wireFormspreeForm);
 
     // Hafa samband.

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Snerpa Þjálfun — shared stylesheet
+   Snerpa Þjálfun - shared stylesheet
    Breakpoints: 375 (base) / 428 / 768 / 900 (nav swap) / 1200 (desktop)
    ========================================================================== */
 
@@ -217,7 +217,7 @@ button { cursor: pointer; }
   .nav-links ul > li > a.is-current:hover{background:var(--yellow-dark);color:var(--black);}
   .nav-links li.nav-mobile-only{display:none;}
 
-  /* Hafa samband — dropdown (Fyrirtækjasamstarf / Þjálfarastarf) */
+  /* Hafa samband - dropdown (Fyrirtækjasamstarf / Þjálfarastarf) */
   .nav-dropdown{position:relative;}
   .nav-dropdown-toggle{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;color:var(--white);font:600 15px/1 var(--font);padding:9px 16px;border-radius:999px;transition:background .15s ease,color .15s ease;}
   .nav-dropdown-toggle .nav-caret{font-size:10px;transition:transform .15s ease;}
