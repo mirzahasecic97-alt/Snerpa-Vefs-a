@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Snerpa Þjálfun — Verslun</title>
-<meta name="description" content="Snerpa vörur á leiðinni — æfingaföt, aukahlutir og stafrænt efni.">
+<title>Snerpa Þjálfun — Viltu þjálfa hjá okkur?</title>
+<meta name="description" content="Sæktu um að þjálfa hjá Snerpu — deildu hugmynd að þjálfun eða sæktu um að vinna með okkur.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
@@ -23,7 +23,7 @@
       <li><a href="index.html#thjalfarar">Þjálfarar</a></li>
       <li><a href="samstarf.html">Samstarf</a></li>
       <li><a href="hafa-samband.html">Hafa samband</a></li>
-      <li><a href="verslun.html" class="is-current">Verslun</a></li>
+      <li><a href="verslun.html">Verslun</a></li>
     </ul>
     </div>
     <a class="nav-cta" href="thjalfun.html">Okkar þjálfun</a>
@@ -46,7 +46,7 @@
     <a href="index.html#thjalfarar">Þjálfarar<span class="chevron">›</span></a>
     <a href="samstarf.html">Samstarf<span class="chevron">›</span></a>
     <a href="hafa-samband.html">Hafa samband<span class="chevron">›</span></a>
-    <a href="verslun.html" class="is-current">Verslun<span class="chevron">›</span></a>
+    <a href="verslun.html">Verslun<span class="chevron">›</span></a>
   </nav>
   <div class="mobile-menu-cta">
     <a class="btn btn-primary" href="thjalfun.html">Okkar þjálfun</a>
@@ -58,28 +58,67 @@
 
   <section class="hero">
     <div class="container">
-      <span class="eyebrow">VERSLUN</span>
-      <h1>Snerpa vörur</h1>
-      <p class="lead">Áþreifanlegar vörur eins og æfingaföt og aukahlutir, og stafrænar vörur eins og æfingaáætlanir — allt á einum stað.</p>
+      <span class="eyebrow">ÞJÁLFARASTÖRF</span>
+      <h1>Viltu þjálfa hjá okkur?</h1>
+      <p class="lead">Ert þú með hugmynd að þjálfun sem þú vilt koma á framfæri, eða langar þig einfaldlega að vinna með okkur? Við tökum vel á móti þjálfurum sem deila hugsjón okkar og metnaði.</p>
     </div>
   </section>
 
-  <section class="section bg-white text-center">
-    <div class="container" style="max-width:600px">
-      <div class="coming-soon-badge">Vörur væntanlegar</div>
-      <p class="section-lead">Æfingaföt, aukahlutir og stafrænt efni frá Snerpa eru á leiðinni — bæði áþreifanlegar og stafrænar vörur. Skráðu þig á póstlistann til að vera fyrst/ur til að vita þegar verslunin opnar.</p>
-    </div>
-  </section>
+  <section class="section bg-white">
+    <div class="container" style="max-width:640px">
 
-  <section class="section bg-dark text-center">
-    <div class="container">
-      <h2 style="font-size:clamp(22px,5vw,28px)">Spurningar um vörur?</h2>
-      <p class="section-lead">Hafðu samband við okkur og við hjálpum þér.</p>
-      <a class="btn btn-primary" href="hafa-samband.html">Hafa samband</a>
+      <div class="info-list">
+        <div class="info-list-row">
+          <div class="info-list-label">HVERJA LEITUM VIÐ AÐ</div>
+          <div class="info-list-value">Þjálfurum með reynslu eða menntun í íþróttum/þjálfun, brennandi áhuga á að byggja upp iðkendur og vilja til að vinna í litlum, markvissum hópum.</div>
+        </div>
+        <div class="info-list-row">
+          <div class="info-list-label">HUGMYNDIR VELKOMNAR</div>
+          <div class="info-list-value">Ertu með hugmynd að nýrri þjálfun eða íþrótt sem þú vilt sjá hjá Snerpu? Segðu okkur frá henni í eyðublaðinu.</div>
+        </div>
+        <div class="info-list-row">
+          <div class="info-list-label">NÆSTU SKREF</div>
+          <div class="info-list-value">Við förum yfir allar umsóknir og höfum samband ef það er mátun á milli ykkar hugmyndar og okkar áherslna.</div>
+        </div>
+      </div>
+
+      <form id="thjalfari-form" action="https://formspree.io/f/xdendnke" method="POST">
+        <input type="hidden" name="_subject" value="Snerpa — Umsókn um þjálfarastarf">
+        <div class="form-field">
+          <label for="t-name">Nafn</label>
+          <input id="t-name" type="text" name="name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="t-email">Netfang</label>
+          <input id="t-email" type="email" inputmode="email" name="email" autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="t-tel">Sími</label>
+          <input id="t-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+        </div>
+        <div class="form-field">
+          <label for="t-sport">Íþrótt / sérsvið sem þú vilt þjálfa</label>
+          <input id="t-sport" type="text" name="sport">
+        </div>
+        <div class="form-field">
+          <label for="t-experience">Reynsla og menntun</label>
+          <textarea id="t-experience" name="experience" rows="4"></textarea>
+        </div>
+        <div class="form-field">
+          <label for="t-idea">Ertu með hugmynd að þjálfun sem þú vilt koma á framfæri?</label>
+          <textarea id="t-idea" name="message" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Senda umsókn</button>
+        <p class="form-status" data-form-status hidden></p>
+      </form>
     </div>
   </section>
 
 </main>
+
+<div class="sticky-cta">
+  <button class="btn btn-primary" type="submit" form="thjalfari-form">Senda umsókn</button>
+</div>
 
 <footer class="site-footer">
   <div class="container">

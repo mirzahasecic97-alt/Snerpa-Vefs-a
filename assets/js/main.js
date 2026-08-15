@@ -318,6 +318,9 @@
 
     // Samstarf.
     wireFormspreeForm(document.getElementById("samstarf-form"));
+
+    // Þjálfarastörf.
+    wireFormspreeForm(document.getElementById("thjalfari-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
