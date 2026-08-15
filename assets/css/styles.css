@@ -130,6 +130,10 @@ button { cursor: pointer; }
 .btn-soldout { background: #d64545; color: #fff; cursor: not-allowed; opacity: .9; }
 .btn-soldout:hover { background: #c23a3a; color: #fff; }
 .btn-soldout:disabled { background: #d64545; color: #fff; }
+.btn-available { background: #2e8b4f; color: #fff; }
+.btn-available:hover { background: #256e3f; color: #fff; }
+.btn-waitlist { background: #e8b923; color: var(--black); }
+.btn-waitlist:hover { background: #d1a61c; color: var(--black); }
 
 .btn-row { display: flex; flex-direction: column; gap: 12px; }
 @media (min-width: 560px) { .btn-row.btn-row-inline { flex-direction: row; } }
