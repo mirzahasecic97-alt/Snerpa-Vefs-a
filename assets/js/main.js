@@ -354,6 +354,9 @@
 
     // Þjálfarastörf.
     wireFormspreeForm(document.getElementById("thjalfari-form"));
+
+    // Biðlisti.
+    wireFormspreeForm(document.getElementById("bidlisti-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
