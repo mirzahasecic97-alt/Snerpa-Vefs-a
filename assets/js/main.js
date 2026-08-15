@@ -43,6 +43,39 @@
     else if (mq.addListener) mq.addListener(handleBreakpoint);
   }
 
+  /* ---------- Nav dropdown (Hafa samband) ---------- */
+  function initNavDropdown() {
+    var dropdowns = document.querySelectorAll(".nav-dropdown");
+    if (!dropdowns.length) return;
+
+    function closeAll(except) {
+      dropdowns.forEach(function (d) {
+        if (d === except) return;
+        d.classList.remove("is-open");
+        var t = d.querySelector(".nav-dropdown-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    dropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav-dropdown-toggle");
+      if (!toggle) return;
+      toggle.addEventListener("click", function () {
+        var isOpen = dropdown.classList.contains("is-open");
+        closeAll(dropdown);
+        dropdown.classList.toggle("is-open", !isOpen);
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-dropdown")) closeAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAll();
+    });
+  }
+
   /* ---------- Accordion (FAQ / legal) ---------- */
   function initAccordions() {
     var triggers = document.querySelectorAll("[data-accordion-trigger]");
@@ -325,6 +358,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
+    initNavDropdown();
     initAccordions();
     initWizard();
     initReviews();
