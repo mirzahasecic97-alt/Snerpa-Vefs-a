@@ -43,6 +43,21 @@
     else if (mq.addListener) mq.addListener(handleBreakpoint);
   }
 
+  /* ---------- Dynamic form action (per aldurshópur Formspree-form) ---------- */
+  function initDynamicFormAction() {
+    document.querySelectorAll("[data-endpoint-select]").forEach(function (select) {
+      var form = select.closest("form");
+      if (!form) return;
+      function apply() {
+        var opt = select.options[select.selectedIndex];
+        var endpoint = opt && opt.getAttribute("data-endpoint");
+        if (endpoint) form.action = endpoint;
+      }
+      select.addEventListener("change", apply);
+      apply();
+    });
+  }
+
   /* ---------- Nav dropdown (Hafa samband) ---------- */
   function initNavDropdown() {
     var dropdowns = document.querySelectorAll(".nav-dropdown");
@@ -357,11 +372,15 @@
 
     // Biðlisti.
     wireFormspreeForm(document.getElementById("bidlisti-form"));
+
+    // Skráning 12–14 ára.
+    wireFormspreeForm(document.getElementById("skraning-12-14-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
     initNavDropdown();
+    initDynamicFormAction();
     initAccordions();
     initWizard();
     initReviews();

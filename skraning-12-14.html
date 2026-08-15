@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Snerpa Þjálfun — Biðlisti</title>
-<meta name="description" content="Skráðu þig á biðlista hjá Snerpu Þjálfun — við höfum samband um leið og pláss losnar.">
+<title>Snerpa Þjálfun — Skráning 12–14 ára</title>
+<meta name="description" content="Skráning fyrir 12–14 ára hópinn í Knattspyrnu Akademíu hjá Snerpu Þjálfun.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
@@ -70,60 +70,53 @@
   <section class="hero">
     <div class="container">
       <a class="back-link" href="fotbolti.html">← Til baka í Knattspyrnu Akademíu</a>
-      <span class="eyebrow">BIÐLISTI</span>
-      <h1>Skráning á biðlista</h1>
-      <p class="lead">6–8 og 9–11 ára hópar í Knattspyrnu Akademíu eru fullir í augnablikinu. Skráðu þig á biðlista hér að neðan og við höfum samband um leið og pláss losnar.</p>
+      <span class="eyebrow">SKRÁNING — 12–14 ÁRA</span>
+      <h1>Skráning í Knattspyrnu Akademíu</h1>
+      <p class="lead">3 pláss laus í 12–14 ára hópnum. Fylltu út eyðublaðið hér að neðan og við höfum samband til að ganga frá skráningu.</p>
     </div>
   </section>
 
   <section class="section bg-white">
     <div class="container" style="max-width:640px">
 
-      <form id="bidlisti-form" action="https://formspree.io/f/mjybergw" method="POST">
-        <input type="hidden" name="_subject" value="Snerpa — Biðlisti skráning">
+      <form id="skraning-12-14-form" action="https://formspree.io/f/mqpzdbed" method="POST">
+        <input type="hidden" name="_subject" value="Snerpa — Skráning 12–14 ára Knattspyrnu Akademía">
         <div class="form-field">
-          <label for="b-child">Nafn iðkanda</label>
-          <input id="b-child" type="text" name="child_name">
+          <label for="s-child">Nafn iðkanda</label>
+          <input id="s-child" type="text" name="child_name">
         </div>
         <div class="form-field">
-          <label for="b-kennitala">Kennitala iðkanda</label>
-          <input id="b-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off">
+          <label for="s-kennitala">Kennitala iðkanda</label>
+          <input id="s-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off">
         </div>
         <div class="form-field">
-          <label for="b-age-group">Aldurshópur</label>
-          <select id="b-age-group" name="age_group" data-endpoint-select>
-            <option value="6–8 ára — Knattspyrnu Akademía" data-endpoint="https://formspree.io/f/mjybergw">6–8 ára — Knattspyrnu Akademía</option>
-            <option value="9–11 ára — Knattspyrnu Akademía" data-endpoint="https://formspree.io/f/xdenlzaz">9–11 ára — Knattspyrnu Akademía</option>
-          </select>
+          <label for="s-name">Nafn foreldris/forráðamanns</label>
+          <input id="s-name" type="text" name="name" autocomplete="name">
         </div>
         <div class="form-field">
-          <label for="b-name">Nafn foreldris/forráðamanns</label>
-          <input id="b-name" type="text" name="name" autocomplete="name">
+          <label for="s-email">Netfang</label>
+          <input id="s-email" type="email" inputmode="email" name="email" autocomplete="email">
         </div>
         <div class="form-field">
-          <label for="b-email">Netfang</label>
-          <input id="b-email" type="email" inputmode="email" name="email" autocomplete="email">
+          <label for="s-tel">Sími</label>
+          <input id="s-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
         </div>
         <div class="form-field">
-          <label for="b-tel">Sími</label>
-          <input id="b-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+          <label for="s-message">Athugasemd (valfrjálst)</label>
+          <textarea id="s-message" name="message" rows="4"></textarea>
         </div>
-        <div class="form-field">
-          <label for="b-message">Athugasemd (valfrjálst)</label>
-          <textarea id="b-message" name="message" rows="4"></textarea>
-        </div>
-        <button class="btn btn-primary btn-block" type="submit">Skrá á biðlista</button>
+        <button class="btn btn-primary btn-block" type="submit">Senda skráningu</button>
         <p class="form-status" data-form-status hidden></p>
       </form>
 
-      <p class="fine-print">Skráning á biðlista er ekki staðfest pláss — við höfum samband um leið og laust pláss býðst.</p>
+      <p class="fine-print">Við höfum samband til að staðfesta pláss og ganga frá greiðslu. Hægt er að segja upp áskrift hvenær sem er í gegnum Sportabler — engin binding fyrir allt tímabilið.</p>
     </div>
   </section>
 
 </main>
 
 <div class="sticky-cta">
-  <button class="btn btn-primary" type="submit" form="bidlisti-form">Skrá á biðlista</button>
+  <button class="btn btn-primary" type="submit" form="skraning-12-14-form">Senda skráningu</button>
 </div>
 
 <footer class="site-footer">
