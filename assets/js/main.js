@@ -372,9 +372,6 @@
 
     // Biðlisti.
     wireFormspreeForm(document.getElementById("bidlisti-form"));
-
-    // Skráning 12–14 ára.
-    wireFormspreeForm(document.getElementById("skraning-12-14-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
