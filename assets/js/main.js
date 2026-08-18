@@ -91,6 +91,67 @@
     });
   }
 
+  /* ---------- Training calendar (month-flip view) ---------- */
+  function initTrainingCalendar() {
+    var grid = document.getElementById("calGrid");
+    if (!grid) return;
+    var label = document.getElementById("calMonthLabel");
+    var prevBtn = document.getElementById("calPrev");
+    var nextBtn = document.getElementById("calNext");
+
+    var monthNames = ["Janúar","Febrúar","Mars","Apríl","Maí","Júní","Júlí","Ágúst","September","Október","Nóvember","Desember"];
+
+    var months = [
+      { y: 2026, m: 8,  training: [6,13,20,27],       off: {} },
+      { y: 2026, m: 9,  training: [4,11,18,25],        off: {} },
+      { y: 2026, m: 10, training: [1,8,15,22,29],      off: {} },
+      { y: 2026, m: 11, training: [6,13,20],           off: { 27: "Jólafrí" } },
+      { y: 2027, m: 0,  training: [10,17,24,31],       off: {} },
+      { y: 2027, m: 1,  training: [7,14,21,28],        off: {} },
+      { y: 2027, m: 2,  training: [7,14,21],           off: { 28: "Páskadagur" } },
+      { y: 2027, m: 3,  training: [4,11,18,25],        off: {} },
+      { y: 2027, m: 4,  training: [2,9,23,30],         off: { 16: "Hvítasunnudagur" } }
+    ];
+    var idx = 0;
+
+    function render() {
+      var mo = months[idx];
+      if (label) label.textContent = monthNames[mo.m] + " " + mo.y;
+      grid.innerHTML = "";
+
+      var firstDay = new Date(mo.y, mo.m, 1).getDay(); // 0=Sun..6=Sat
+      var offset = (firstDay + 6) % 7; // Mon=0..Sun=6
+      var daysInMonth = new Date(mo.y, mo.m + 1, 0).getDate();
+
+      for (var i = 0; i < offset; i++) {
+        var empty = document.createElement("div");
+        empty.className = "cal-day is-empty";
+        grid.appendChild(empty);
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var cell = document.createElement("div");
+        cell.className = "cal-day";
+        cell.textContent = String(d);
+        if (mo.training.indexOf(d) !== -1) {
+          cell.className += " is-training";
+          cell.setAttribute("aria-label", d + ". - æfing");
+        } else if (mo.off[d]) {
+          cell.className += " is-off";
+          cell.title = mo.off[d];
+          cell.setAttribute("aria-label", d + ". - frí, " + mo.off[d]);
+        }
+        grid.appendChild(cell);
+      }
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === months.length - 1;
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { if (idx > 0) { idx--; render(); } });
+    if (nextBtn) nextBtn.addEventListener("click", function () { if (idx < months.length - 1) { idx++; render(); } });
+
+    render();
+  }
+
   /* ---------- Accordion (FAQ / legal) ---------- */
   function initAccordions() {
     var triggers = document.querySelectorAll("[data-accordion-trigger]");
@@ -378,6 +439,7 @@
     initMobileMenu();
     initNavDropdown();
     initDynamicFormAction();
+    initTrainingCalendar();
     initAccordions();
     initWizard();
     initReviews();

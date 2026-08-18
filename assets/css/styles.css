@@ -440,6 +440,27 @@ button { cursor: pointer; }
 .calendar-month li.is-off .status small { display: block; margin-top: 2px; font: 400 10px/1.2 var(--font); letter-spacing: 0; color: var(--text-on-light-faint); }
 .calendar-summary { text-align: center; font: 700 14px/1.4 var(--font); color: var(--text-on-light-faint); margin: 0 0 30px; }
 
+.cal-widget { max-width: 400px; margin: 0 auto 20px; border: 1px solid var(--border-on-light); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); }
+.cal-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--near-black); }
+.cal-header h3 { margin: 0; font: 800 15px/1 var(--font); color: var(--white); text-transform: uppercase; letter-spacing: .03em; }
+.cal-nav { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: var(--white); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s ease, color .15s ease; }
+.cal-nav:hover:not(:disabled) { background: rgba(255,255,0,.2); color: var(--yellow); }
+.cal-nav:disabled { opacity: .3; cursor: not-allowed; }
+.cal-weekdays { display: grid; grid-template-columns: repeat(7,1fr); padding: 12px 10px 0; }
+.cal-weekdays span { text-align: center; font: 700 10.5px/1 var(--mono); color: var(--text-on-light-faint); letter-spacing: .03em; }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; padding: 8px 10px 12px; }
+.cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 8px; font: 700 13px/1 var(--font); color: var(--text-on-light-faint); position: relative; }
+.cal-day.is-empty { visibility: hidden; }
+.cal-day.is-training { background: rgba(46,139,79,.12); color: var(--text-on-light-strong); }
+.cal-day.is-training::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #2e8b4f; }
+.cal-day.is-off { background: rgba(214,69,69,.1); color: var(--text-on-light-strong); }
+.cal-day.is-off::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #d64545; }
+.cal-legend { display: flex; gap: 18px; justify-content: center; padding: 2px 16px 16px; border-top: 1px solid var(--border-on-light); margin-top: 4px; padding-top: 12px; }
+.cal-legend-item { display: flex; align-items: center; gap: 6px; font: 600 12px/1 var(--font); color: var(--text-on-light-faint); }
+.cal-legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.dot-training { background: #2e8b4f; }
+.dot-off { background: #d64545; }
+
 /* ---------- Quick-select pill strip ---------- */
 .pill-strip { display: flex; gap: 8px; overflow-x: auto; padding: 4px var(--pad) 6px; margin: 0 calc(var(--pad) * -1); }
 .pill {
