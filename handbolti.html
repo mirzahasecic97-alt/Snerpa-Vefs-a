@@ -138,20 +138,52 @@
         <p class="note">Áskrift sept. 2026 – maí 2027 · Systkinaafsláttur 15% · æfingafjöldi breytilegur milli mánaða (des. 3 v/jólafrís), gjaldið jafnað út yfir tímabilið.</p>
       </div>
 
-      <h2 id="forskraning" style="font-size:20px">Veldu aldurshóp</h2>
-      <div class="btn-row">
-        <a class="btn btn-available" href="https://www.abler.io/shop/handbolti/product/Q2x1YlNlcnZpY2U6NjM2NDc=/">Skrá - 9–11 ára, kl. 10:00 (laust)</a>
-        <a class="btn btn-available" href="https://www.abler.io/shop/handbolti/product/Q2x1YlNlcnZpY2U6NjM2NDg=/">Skrá - 12–14 ára, kl. 11:00 (laust)</a>
-      </div>
+      <h2 id="forskraning" style="font-size:20px">Skráning</h2>
+      <form id="handbolti-form" action="https://formspree.io/f/xdendnke" method="POST">
+        <input type="hidden" name="_subject" value="Snerpa - Skráning Handbolta Akademía">
+        <div class="form-field">
+          <label for="h-child">Nafn iðkanda</label>
+          <input id="h-child" type="text" name="child_name">
+        </div>
+        <div class="form-field">
+          <label for="h-kennitala">Kennitala iðkanda</label>
+          <input id="h-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="h-group">Aldurshópur</label>
+          <select id="h-group" name="age_group">
+            <option value="9–11 ára, kl. 10:00 - Handbolta Akademía">9–11 ára, kl. 10:00</option>
+            <option value="12–14 ára, kl. 11:00 - Handbolta Akademía">12–14 ára, kl. 11:00</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="h-name">Nafn foreldris/forráðamanns</label>
+          <input id="h-name" type="text" name="name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="h-email">Netfang</label>
+          <input id="h-email" type="email" inputmode="email" name="email" autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="h-tel">Sími</label>
+          <input id="h-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+        </div>
+        <div class="form-field">
+          <label for="h-message">Athugasemd (valfrjálst)</label>
+          <textarea id="h-message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Senda skráningu</button>
+        <p class="form-status" data-form-status hidden></p>
+      </form>
 
-      <p class="fine-print">Skráning og greiðsla fer fram á Abler. Hægt er að segja upp áskrift hvenær sem er í gegnum Sportabler - engin binding fyrir allt tímabilið.</p>
+      <p class="fine-print">Þetta eyðublað er ekki greiðsla - við skráum þig svo í gegnum Sportabler og höfum samband til að staðfesta og ganga frá greiðslu. Hægt er að segja upp áskrift hvenær sem er - engin binding fyrir allt tímabilið.</p>
     </div>
   </section>
 
 </main>
 
 <div class="sticky-cta">
-  <a class="btn btn-available" href="#forskraning">Laus pláss - Skrá í handbolta</a>
+  <button class="btn btn-available" type="submit" form="handbolti-form">Senda skráningu</button>
 </div>
 
 <footer class="site-footer">

@@ -133,20 +133,44 @@
         <div class="amount">19.990 kr <span class="unit">/ mán</span></div>
       </div>
 
-      <h2 id="veldu-tima" style="font-size:20px">Veldu tíma</h2>
-      <div class="btn-row">
-        <a class="btn btn-available" href="https://forms.gle/Rvsd1YUKLWsCBEMG7">Skrá mig - kl. 10:00 (laust)</a>
-        <a class="btn btn-available" href="https://forms.gle/Rvsd1YUKLWsCBEMG7">Skrá mig - kl. 11:00 (laust)</a>
-      </div>
+      <h2 id="veldu-tima" style="font-size:20px">Skráning</h2>
+      <form id="sextiu-form" action="https://formspree.io/f/xdendnke" method="POST">
+        <input type="hidden" name="_subject" value="Snerpa - Skráning 60+ Æfingar">
+        <div class="form-field">
+          <label for="s60-name">Nafn</label>
+          <input id="s60-name" type="text" name="name" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="s60-time">Tími</label>
+          <select id="s60-time" name="time">
+            <option value="kl. 10:00 - 60+ Æfingar">kl. 10:00</option>
+            <option value="kl. 11:00 - 60+ Æfingar">kl. 11:00</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="s60-email">Netfang</label>
+          <input id="s60-email" type="email" inputmode="email" name="email" autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="s60-tel">Sími</label>
+          <input id="s60-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+        </div>
+        <div class="form-field">
+          <label for="s60-message">Athugasemd (valfrjálst)</label>
+          <textarea id="s60-message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Senda skráningu</button>
+        <p class="form-status" data-form-status hidden></p>
+      </form>
 
-      <p class="fine-print">Fylltu út eyðublaðið til að skrá þig. Hægt er að segja upp áskrift hvenær sem er - engin binding fyrir allt tímabilið.</p>
+      <p class="fine-print">Þetta eyðublað er ekki greiðsla - við skráum þig svo í gegnum Sportabler og höfum samband til að staðfesta og ganga frá greiðslu. Hægt er að segja upp áskrift hvenær sem er - engin binding fyrir allt tímabilið.</p>
     </div>
   </section>
 
 </main>
 
 <div class="sticky-cta">
-  <a class="btn btn-available" href="#veldu-tima">Laus pláss - Skrá á 60+ æfingar</a>
+  <button class="btn btn-available" type="submit" form="sextiu-form">Senda skráningu</button>
 </div>
 
 <footer class="site-footer">

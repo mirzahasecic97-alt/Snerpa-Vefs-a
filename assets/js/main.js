@@ -444,6 +444,10 @@
 
     // Biðlisti.
     wireFormspreeForm(document.getElementById("bidlisti-form"));
+
+    // Handbolti og 60+ skráning.
+    wireFormspreeForm(document.getElementById("handbolti-form"));
+    wireFormspreeForm(document.getElementById("sextiu-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
