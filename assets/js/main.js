@@ -132,13 +132,24 @@
         var cell = document.createElement("div");
         cell.className = "cal-day";
         cell.textContent = String(d);
-        if (mo.training.indexOf(d) !== -1) {
-          cell.className += " is-training";
-          cell.setAttribute("aria-label", d + ". - æfing");
-        } else if (mo.off[d]) {
+        var weekday = new Date(mo.y, mo.m, d).getDay(); // 0=Sun..6=Sat
+
+        if (mo.off[d]) {
           cell.className += " is-off";
           cell.title = mo.off[d];
           cell.setAttribute("aria-label", d + ". - frí, " + mo.off[d]);
+        } else if (mo.training.indexOf(d) !== -1) {
+          cell.className += " is-training";
+          cell.title = "Knattspyrnu 6-8 kl. 12:30, 9-11 kl. 13:30 · Handbolti 9-11 kl. 10:00, 12-14 kl. 11:00";
+          cell.setAttribute("aria-label", d + ". - æfing");
+        } else if (weekday === 6) { // Saturday
+          cell.className += " is-sat";
+          cell.title = "Knattspyrnu 12-14 ára kl. 12:00";
+          cell.setAttribute("aria-label", d + ". - 12-14 ára æfing kl. 12:00");
+        } else if (weekday === 2 || weekday === 4) { // Tue/Thu
+          cell.className += " is-week";
+          cell.title = "60+ Æfingar kl. 10:00 og kl. 11:00";
+          cell.setAttribute("aria-label", d + ". - 60+ æfing");
         }
         grid.appendChild(cell);
       }

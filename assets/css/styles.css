@@ -453,12 +453,18 @@ button { cursor: pointer; }
 .cal-day.is-empty { visibility: hidden; }
 .cal-day.is-training { background: rgba(46,139,79,.12); color: var(--text-on-light-strong); }
 .cal-day.is-training::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #2e8b4f; }
+.cal-day.is-sat { background: rgba(59,107,214,.1); color: var(--text-on-light-strong); }
+.cal-day.is-sat::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #3b6bd6; }
+.cal-day.is-week { background: rgba(217,119,6,.1); color: var(--text-on-light-strong); }
+.cal-day.is-week::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #d97706; }
 .cal-day.is-off { background: rgba(214,69,69,.1); color: var(--text-on-light-strong); }
 .cal-day.is-off::after { content: ""; position: absolute; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: #d64545; }
-.cal-legend { display: flex; gap: 18px; justify-content: center; padding: 2px 16px 16px; border-top: 1px solid var(--border-on-light); margin-top: 4px; padding-top: 12px; }
-.cal-legend-item { display: flex; align-items: center; gap: 6px; font: 600 12px/1 var(--font); color: var(--text-on-light-faint); }
-.cal-legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
-.dot-training { background: #2e8b4f; }
+.cal-legend { display: flex; flex-wrap: wrap; gap: 12px 18px; justify-content: center; padding: 2px 16px 16px; border-top: 1px solid var(--border-on-light); margin-top: 4px; padding-top: 12px; }
+.cal-legend-item { display: flex; align-items: center; gap: 6px; font: 600 12px/1.3 var(--font); color: var(--text-on-light-faint); }
+.cal-legend .dot { flex: none; display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.dot-training, .dot-sun { background: #2e8b4f; }
+.dot-sat { background: #3b6bd6; }
+.dot-week { background: #d97706; }
 .dot-off { background: #d64545; }
 
 /* ---------- Quick-select pill strip ---------- */
