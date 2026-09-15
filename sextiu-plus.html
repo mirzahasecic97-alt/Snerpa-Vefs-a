@@ -93,6 +93,54 @@
     </div>
   </section>
 
+  <section class="section bg-white" style="padding-bottom:0" id="prufa">
+    <div class="container" style="max-width:760px">
+      <div style="background:var(--near-black);border-radius:var(--radius-lg);padding:26px 24px;margin-bottom:6px">
+        <div style="font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--yellow);margin-bottom:10px">TAKMARKAÐ TILBOÐ</div>
+        <h2 style="margin:0 0 8px;font-size:22px;color:var(--white)">Prufaðu frítt - veldu dag og tíma!</h2>
+        <p style="margin:0 0 20px;font:400 15px/1.6 var(--font);color:var(--text-on-dark-faint)">Komdu og prófaðu eina 60+ æfingu frítt - engin skuldbinding, engin greiðsla. Í boði fimmtudaginn 17. september eða þriðjudaginn 22. september, kl. 10:00 eða kl. 11:00.</p>
+
+        <form id="prufa-form" action="https://formspree.io/f/xppaojrk" method="POST">
+          <input type="hidden" name="_subject" value="Snerpa - FRÍ PRUFUÆFING 60+">
+          <div class="form-field on-dark">
+            <label for="prufa-name" style="color:var(--white)">Nafn</label>
+            <input id="prufa-name" type="text" name="name" autocomplete="name">
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-kennitala" style="color:var(--white)">Kennitala</label>
+            <input id="prufa-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-day" style="color:var(--white)">Dagur</label>
+            <select id="prufa-day" name="day">
+              <option value="Fimmtudagur 17. september">Fimmtudagur 17. september</option>
+              <option value="Þriðjudagur 22. september">Þriðjudagur 22. september</option>
+            </select>
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-time" style="color:var(--white)">Tími</label>
+            <select id="prufa-time" name="time" data-endpoint-select>
+              <option value="kl. 10:00 - FRÍ PRUFUÆFING 60+" data-endpoint="https://formspree.io/f/xppaojrk">kl. 10:00</option>
+              <option value="kl. 11:00 - FRÍ PRUFUÆFING 60+" data-endpoint="https://formspree.io/f/xkjwpvby">kl. 11:00</option>
+            </select>
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-email" style="color:var(--white)">Netfang</label>
+            <input id="prufa-email" type="email" inputmode="email" name="email" autocomplete="email">
+          </div>
+          <div class="form-field on-dark">
+            <label for="prufa-tel" style="color:var(--white)">Sími</label>
+            <input id="prufa-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+          </div>
+          <button class="btn btn-available btn-block" type="submit">Skrá mig í prufutíma</button>
+          <p class="form-status" data-form-status hidden></p>
+        </form>
+
+        <p style="margin:16px 0 0;font:400 13px/1.5 var(--font);color:var(--text-on-dark-faint)">Þetta er ein frí prufuæfing - engin skuldbinding né greiðsla. Þar sem plássið er takmarkað höfum við samband við þig til að staðfesta hvort þú komst að.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section bg-white">
     <div class="container" style="max-width:760px">
 
