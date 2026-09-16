@@ -475,6 +475,9 @@
 
     // Fjarþjálfun pakkaskráning.
     wireFormspreeForm(document.getElementById("pakki-form"));
+
+    // Handbolti frí prufuæfing.
+    wireFormspreeForm(document.getElementById("handbolti-prufa-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {

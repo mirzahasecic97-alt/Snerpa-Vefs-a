@@ -94,6 +94,53 @@
     </div>
   </section>
 
+  <section class="section bg-white" style="padding-bottom:0" id="prufa">
+    <div class="container" style="max-width:760px">
+      <div style="background:var(--near-black);border-radius:var(--radius-lg);padding:26px 24px;margin-bottom:6px">
+        <div style="font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--yellow);margin-bottom:10px">TAKMARKAÐ TILBOÐ</div>
+        <h2 style="margin:0 0 8px;font-size:22px;color:var(--white)">Komdu og prófaðu frítt!</h2>
+        <p style="margin:0 0 20px;font:400 15px/1.6 var(--font);color:var(--text-on-dark-faint)">Komdu á eina æfingu frítt - engin skuldbinding, engin greiðsla. Í boði sunnudaginn 20. september eða sunnudaginn 27. september.</p>
+
+        <form id="handbolti-prufa-form" action="https://formspree.io/f/xdendnke" method="POST">
+          <input type="hidden" name="_subject" value="Snerpa - FRÍ PRUFUÆFING Handbolti">
+          <div class="form-field on-dark">
+            <label for="hprufa-name" style="color:var(--white)">Nafn iðkanda</label>
+            <input id="hprufa-name" type="text" name="name" autocomplete="name">
+          </div>
+          <div class="form-field on-dark">
+            <label for="hprufa-kennitala" style="color:var(--white)">Kennitala</label>
+            <input id="hprufa-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
+          </div>
+          <div class="form-field on-dark">
+            <label for="hprufa-agegroup" style="color:var(--white)">Aldurshópur</label>
+            <select id="hprufa-agegroup" name="agegroup">
+              <option value="9-11 ára, kl. 10:00">9-11 ára, kl. 10:00</option>
+              <option value="12-14 ára, kl. 11:00">12-14 ára, kl. 11:00</option>
+            </select>
+          </div>
+          <div class="form-field on-dark">
+            <label for="hprufa-day" style="color:var(--white)">Dagur</label>
+            <select id="hprufa-day" name="day">
+              <option value="Sunnudagur 20. september">Sunnudagur 20. september</option>
+              <option value="Sunnudagur 27. september">Sunnudagur 27. september</option>
+            </select>
+          </div>
+          <div class="form-field on-dark">
+            <label for="hprufa-email" style="color:var(--white)">Netfang</label>
+            <input id="hprufa-email" type="email" inputmode="email" name="email" autocomplete="email">
+          </div>
+          <div class="form-field on-dark">
+            <label for="hprufa-tel" style="color:var(--white)">Sími</label>
+            <input id="hprufa-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
+          </div>
+          <button class="btn btn-available btn-block" type="submit">Skrá mig í prufutíma</button>
+          <p class="form-status" data-form-status hidden></p>
+        </form>
+
+        <p style="margin:16px 0 0;font:400 13px/1.5 var(--font);color:var(--text-on-dark-faint)">Þetta er ein frí prufuæfing - engin skuldbinding né greiðsla. Þar sem plássið er takmarkað höfum við samband við þig til að staðfesta hvort þú komst að.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="section bg-white">
     <div class="container" style="max-width:760px">
