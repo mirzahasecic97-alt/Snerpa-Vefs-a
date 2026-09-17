@@ -181,47 +181,19 @@
       </div>
 
       <h2 id="veldu-tima" style="font-size:20px">Skráning</h2>
-      <form id="sextiu-form" action="https://formspree.io/f/xppaojrk" method="POST">
-        <input type="hidden" name="_subject" value="Snerpa - Skráning 60+ Æfingar">
-        <div class="form-field">
-          <label for="s60-name">Nafn</label>
-          <input id="s60-name" type="text" name="name" autocomplete="name">
-        </div>
-        <div class="form-field">
-          <label for="s60-kennitala">Kennitala</label>
-          <input id="s60-kennitala" type="text" inputmode="numeric" name="kennitala" placeholder="XXXXXX-XXXX" autocomplete="off" required>
-        </div>
-        <div class="form-field">
-          <label for="s60-time">Tími</label>
-          <select id="s60-time" name="time" data-endpoint-select>
-            <option value="kl. 10:00 - 60+ Æfingar" data-endpoint="https://formspree.io/f/xppaojrk">kl. 10:00</option>
-            <option value="kl. 11:00 - 60+ Æfingar" data-endpoint="https://formspree.io/f/xkjwpvby">kl. 11:00</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="s60-email">Netfang</label>
-          <input id="s60-email" type="email" inputmode="email" name="email" autocomplete="email">
-        </div>
-        <div class="form-field">
-          <label for="s60-tel">Sími</label>
-          <input id="s60-tel" type="tel" inputmode="tel" name="tel" autocomplete="tel">
-        </div>
-        <div class="form-field">
-          <label for="s60-message">Athugasemd (valfrjálst)</label>
-          <textarea id="s60-message" name="message" rows="4"></textarea>
-        </div>
-        <button class="btn btn-primary btn-block" type="submit">Senda skráningu</button>
-        <p class="form-status" data-form-status hidden></p>
-      </form>
+      <div class="btn-row">
+        <a class="btn btn-available" href="https://straumur.repeat.is/repeat_checkout/934f1f30-b8af-4a5a-8cfb-a5b3abd59e94/?products.0.uuid=56c9b8dd-d981-451f-99b7-11e7e4545181&products.0.quantity=1&currency=ISK&language=is&interval_type=MONTH&interval_count=1">Skrá - kl. 10:00</a>
+        <a class="btn btn-available" href="https://straumur.repeat.is/repeat_checkout/934f1f30-b8af-4a5a-8cfb-a5b3abd59e94/?products.0.uuid=39fff986-21a0-4e0d-800a-8d4e2b4b1aaf&products.0.quantity=1&currency=ISK&language=is&interval_type=MONTH&interval_count=1">Skrá - kl. 11:00</a>
+      </div>
 
-      <p class="highlight">Þetta eyðublað er ekki greiðsla - við skráum þig svo í gegnum Sportabler og höfum samband til að staðfesta og ganga frá greiðslu. Hægt er að segja upp áskrift hvenær sem er og byrja aftur síðar - engin binding fyrir allt tímabilið, enginn uppsagnarfrestur.</p>
+      <p class="highlight">Skráning og greiðsla fer fram á Straumur. Hægt er að segja upp áskrift hvenær sem er og byrja aftur síðar - engin binding fyrir allt tímabilið, enginn uppsagnarfrestur.</p>
     </div>
   </section>
 
 </main>
 
 <div class="sticky-cta">
-  <button class="btn btn-available" type="submit" form="sextiu-form">Senda skráningu</button>
+  <a class="btn btn-available" href="#veldu-tima">Laus pláss - Skrá núna</a>
 </div>
 
 <footer class="site-footer">
