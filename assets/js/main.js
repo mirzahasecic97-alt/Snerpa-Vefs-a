@@ -478,6 +478,9 @@
 
     // Handbolti frí prufuæfing.
     wireFormspreeForm(document.getElementById("handbolti-prufa-form"));
+
+    // Golf Styrkur skráning.
+    wireFormspreeForm(document.getElementById("golf-form"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {
