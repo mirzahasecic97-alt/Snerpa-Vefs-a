@@ -113,6 +113,9 @@
       { y: 2027, m: 4,  training: [2,9,23,30],         off: { 16: "Hvítasunnudagur" } }
     ];
     var idx = 0;
+    var now = new Date();
+    months.forEach(function (mo, i) { if (mo.y === now.getFullYear() && mo.m === now.getMonth()) idx = i; });
+    if (now > new Date(months[months.length - 1].y, months[months.length - 1].m + 1, 0)) idx = months.length - 1;
 
     function render() {
       var mo = months[idx];
@@ -132,6 +135,7 @@
         var cell = document.createElement("div");
         cell.className = "cal-day";
         cell.textContent = String(d);
+        if (mo.y === now.getFullYear() && mo.m === now.getMonth() && d === now.getDate()) cell.className += " is-today";
         var weekday = new Date(mo.y, mo.m, d).getDay(); // 0=Sun..6=Sat
 
         if (mo.off[d]) {
