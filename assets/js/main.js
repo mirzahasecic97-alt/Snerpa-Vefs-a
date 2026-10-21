@@ -170,6 +170,14 @@
   /* ---------- Accordion (FAQ / legal) ---------- */
   function initAccordions() {
     var triggers = document.querySelectorAll("[data-accordion-trigger]");
+    // Svörin eru sýnileg í HTML (fyrir leitarvélar, gervigreind og vafra án JS);
+    // hér eru lokuð spjöld falin þegar síðan hleðst.
+    triggers.forEach(function (trigger) {
+      if (trigger.getAttribute("aria-expanded") !== "true") {
+        var p = document.getElementById(trigger.getAttribute("aria-controls"));
+        if (p) p.hidden = true;
+      }
+    });
     triggers.forEach(function (trigger) {
       trigger.addEventListener("click", function () {
         var panelId = trigger.getAttribute("aria-controls");

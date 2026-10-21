@@ -604,7 +604,7 @@ button { cursor: pointer; }
 
 /* ---------- Newsletter box ---------- */
 .newsletter-box { padding: 18px; border: 1px solid var(--border-on-dark); border-radius: var(--radius); margin-bottom: 26px; }
-.newsletter-box h4 { margin: 0 0 6px; font: 700 15px/1 var(--font); color: var(--white); }
+.newsletter-box h4, .newsletter-box h2 { margin: 0 0 6px; font: 700 15px/1 var(--font); color: var(--white); }
 .newsletter-box p { margin: 0 0 14px; font: 400 14px/1.5 var(--font); color: var(--text-on-dark-faint); }
 .newsletter-form { display: flex; flex-direction: column; gap: 10px; }
 .newsletter-form input {
@@ -617,7 +617,7 @@ button { cursor: pointer; }
 .site-footer { padding: 34px 0 36px; background: var(--black); color: rgba(255,255,255,.7); }
 .site-footer .wordmark { height: 24px; width: auto; margin-bottom: 14px; }
 .site-footer .tagline { margin: 0 0 22px; font: 400 14px/1.55 var(--font); color: var(--text-on-dark-faint); max-width: 420px; }
-.footer-col h4 { margin: 0 0 4px; font: 700 13px/1 var(--font); color: var(--white); }
+.footer-col h4, .footer-col h2 { margin: 0 0 4px; font: 700 13px/1 var(--font); color: var(--white); }
 .footer-links { display: flex; flex-direction: column; margin-bottom: 16px; list-style: none; padding: 0; }
 .footer-links a, .footer-links button {
   min-height: 44px; display: flex; align-items: center; background: none; border: 0; padding: 0; text-align: left;
