@@ -462,6 +462,81 @@
      Submits a form to Formspree via fetch (no page leave) and shows an
      inline status message. Used for póstlisti, Hafa samband og Samstarf -
      all three land in info@snerpacoaching.is. */
+  /* ---------- Afrit til Make ----------
+     Form sem bera data-make-hook senda lika afrit i Make svo skraningin
+     lendi i gagnagrunni en ekki bara i posthólfi. Kennitala fer aldrei med,
+     hun er persónugreinanleg og thetta flaedi tharf hana ekki.
+     Thetta er fire-and-forget: ef Make svarar ekki ma notandinn ekki finna
+     fyrir thvi, Formspree er buid ad taka vid skraningunni. */
+  /* Breytir vikudagsheiti i naestu raunverulegu dagsetningu.
+     Ef dagurinn er i dag og timinn ekki lidinn telst thad i dag,
+     annars naesta vika. Skilar tomu ef dagur vantar. */
+  function naestiDagur(dagur, timi) {
+    if (!dagur) return "";
+    // Stofnar, svo badi "sunnudagur" og "sunnudaga" passi
+    var stofnar = [
+      ["sunnudag", 0], ["manudag", 1], ["thridjudag", 2], ["midvikudag", 3],
+      ["fimmtudag", 4], ["fostudag", 5], ["laugardag", 6]
+    ];
+    var lykill = dagur.toLowerCase()
+      .replace(/á/g, "a").replace(/é/g, "e").replace(/í/g, "i")
+      .replace(/ó/g, "o").replace(/ú/g, "u").replace(/ý/g, "y")
+      .replace(/þ/g, "th").replace(/æ/g, "ae").replace(/ö/g, "o")
+      .replace(/ð/g, "d").trim();
+    var marki;
+    for (var i = 0; i < stofnar.length; i++) {
+      if (lykill.indexOf(stofnar[i][0]) !== -1) { marki = stofnar[i][1]; break; }
+    }
+    if (marki === undefined) return "";
+
+    var klst = 0, min = 0;
+    var t = (timi || "").match(/(\d{1,2})[:.](\d{2})/);
+    if (t) { klst = parseInt(t[1], 10); min = parseInt(t[2], 10); }
+
+    var d = new Date();
+    var munur = (marki - d.getDay() + 7) % 7;
+    if (munur === 0) {
+      var idag = new Date(d); idag.setHours(klst, min, 0, 0);
+      if (idag <= d) munur = 7;
+    }
+    d.setDate(d.getDate() + munur);
+    d.setHours(klst, min, 0, 0);
+    return d.toISOString();
+  }
+
+  function sendaATilMake(form) {
+    var hook = form.getAttribute("data-make-hook");
+    if (!hook) return;
+
+    var fd = new FormData(form);
+    var gogn = {
+      nafn: fd.get("name") || "",
+      netfang: fd.get("email") || "",
+      simi: fd.get("tel") || "",
+      ithrott: form.getAttribute("data-ithrott") || "",
+      dagur: fd.get("day") || "",
+      timi: fd.get("time") || "",
+      aldurshopur: fd.get("agegroup") || ""
+    };
+
+    // Formid gefur vikudagsheiti en ekki dagsetningu. Vid reiknum naesta
+    // slikan dag svo haegt se ad senda aminningu ad morgni aefingadags.
+    // Handboltaformid er ekki med serstaka dag- og timareiti, their eru
+    // inni i aldurshopnum: "9-11 ara, sunnudaga kl. 10:00".
+    var dagurTexti = gogn.dagur || gogn.aldurshopur;
+    var timiTexti = gogn.timi || gogn.aldurshopur;
+    gogn.aefing_ts = naestiDagur(dagurTexti, timiTexti);
+
+    try {
+      fetch(hook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(gogn),
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
   function wireFormspreeForm(form) {
     if (!form) return;
     var status = form.querySelector("[data-form-status]");
@@ -478,6 +553,7 @@
         headers: { Accept: "application/json" }
       }).then(function (response) {
         if (!response.ok) throw new Error("Formspree error");
+        sendaATilMake(form);
         form.reset();
         if (status) {
           status.textContent = "Takk fyrir! Skilaboðin voru send.";
