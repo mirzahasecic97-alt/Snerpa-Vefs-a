@@ -603,6 +603,10 @@
     // Nafnlaus umsögn.
     wireFormspreeForm(document.getElementById("umsogn-form"));
 
+    // Félög og fyrirtæki: beiðni um tilboð.
+    wireFormspreeForm(document.getElementById("felog-form"));
+    wireFormspreeForm(document.getElementById("fyrirtaeki-form"));
+
     // Golf Styrkur skráning.
     wireFormspreeForm(document.getElementById("golf-form"));
   }
