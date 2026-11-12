@@ -294,6 +294,22 @@ button { cursor: pointer; }
 .hero-sports a { padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.82); font: 600 14px/1 var(--font); transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
 .hero-sports a:hover { background: var(--yellow); border-color: var(--yellow); color: var(--black); }
 
+/* ---------- Hero: flæðandi gler-bakgrunnur (aðeins CSS, ekkert myndband) ---------- */
+.hero-glass { position: relative; overflow: hidden; isolation: isolate; }
+.hero-glass .container { position: relative; z-index: 1; }
+.hero-glass-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-glass-bg span { position: absolute; border-radius: 50%; filter: blur(56px); will-change: transform; }
+.hero-glass-bg span:nth-child(1) { width: clamp(260px, 46vw, 560px); aspect-ratio: 1; top: -14%; left: 6%; background: rgba(255,255,0,.42); animation: glassFloatA 19s ease-in-out infinite alternate; }
+.hero-glass-bg span:nth-child(2) { width: clamp(220px, 38vw, 460px); aspect-ratio: 1; top: 22%; right: -6%; background: rgba(255,200,0,.30); animation: glassFloatB 23s ease-in-out infinite alternate; }
+.hero-glass-bg span:nth-child(3) { width: clamp(200px, 34vw, 420px); aspect-ratio: 1; bottom: -24%; left: 34%; background: rgba(255,255,255,.14); animation: glassFloatC 27s ease-in-out infinite alternate; }
+.hero-glass-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,0) 38%, rgba(0,0,0,.28) 100%); }
+@keyframes glassFloatA { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(14vw,10%,0) scale(1.18); } }
+@keyframes glassFloatB { 0% { transform: translate3d(0,0,0) scale(1.1); } 100% { transform: translate3d(-16vw,-12%,0) scale(.9); } }
+@keyframes glassFloatC { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(-10vw,-18%,0) scale(1.25); } }
+.hero-glass .hero-sports a { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.22); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.hero-glass .hero-sports a:hover { background: var(--yellow); border-color: var(--yellow); }
+@media (prefers-reduced-motion: reduce) { .hero-glass-bg span { animation: none; } }
+
 /* ---------- Program banner image ---------- */
 .program-banner { width: 100%; height: 210px; object-fit: cover; }
 @media (min-width: 768px) { .program-banner { height: 320px; } }
