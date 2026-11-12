@@ -611,6 +611,21 @@
     wireFormspreeForm(document.getElementById("golf-form"));
   }
 
+  // Mjúkt fade-in á köflum þegar þeir koma inn á skjáinn.
+  function initReveal() {
+    if (!("IntersectionObserver" in window)) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var items = document.querySelectorAll("main .section .container");
+    if (!items.length) return;
+    document.documentElement.classList.add("js-reveal");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+    items.forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
     initNavDropdown();
@@ -623,5 +638,6 @@
     initReviews();
     initCoaches();
     initMailtoForms();
+    initReveal();
   });
 })();
